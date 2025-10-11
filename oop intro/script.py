@@ -28,7 +28,7 @@ class User:
         self.balance += amount
     
     def withdraw(self, much):
-        self.balance = much
+        self.balance -= much
     
     
     
@@ -39,21 +39,42 @@ class User:
 class Investments(User):
     
     def __init__(self, name, accountNumber, investmentAmount):
-        super().__init__(name, accountNumber)
+        super().__init__(name, accountNumber, balance=None)
         self.investmentAmount = investmentAmount
+        self.remain = 0
         
         
-    def stock(self):
+    def stock(self, name):
         if self.investmentAmount <= 10000:
-            self.remain  = self.investmentAmount
-            print(f"Invested in stocks successfully.Invested amount $: {self.investmentAmount}")
-            
+            print(f"{self.name}Invested in stocks successfully.Invested amount $: {self.investmentAmount}.00")
+        else:
+            self.remain = self.investmentAmount - 10000
+            print(f"{self.name}, $: 10000.00 invested in stocks remain ${self.remain}.00 send to the bond account")
         
-    def bond():
+    def bond(self):
+        print(f"$: {self.remain}.00 invested in bonds")
         
         
-
-user1 = User("pakaya", "23",34)
+        
+        
+    
+        
+user1 = User("Mark", "23", 1000)
 user1.message()
 user1.deposit(45)
 user1.message()
+
+
+user2 = Investments(user1, "Dave", 56777)
+user2.stock()
+user2.bond()
+
+
+
+
+# Inheriting from another Class
+# When inherit from class, the New considered a "type of Parent Class"  #
+# You can reuse the code from the Parent Class with out Rewriting it #
+# "And also Can Override Methods if want to Change Behavior" #
+
+# if you want some data from parent class no inheritance needed #
