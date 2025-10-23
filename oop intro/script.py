@@ -60,7 +60,7 @@ class Investments(User):
         
         
 
-user1 = User("pakaya", "23",34)
+user1 = User("smith", "23",34)
 user1.message()
 user1.deposit(45)
 user1.message()
